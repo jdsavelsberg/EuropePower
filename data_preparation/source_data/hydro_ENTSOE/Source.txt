@@ -1,0 +1,4 @@
+https://zenodo.org/record/3952499
+
+cite as:
+De Felice, Matteo. (2020). ENTSO-E Hydropower modelling data (PECD) in CSV format (Version 3) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3952499

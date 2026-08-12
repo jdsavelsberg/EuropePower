@@ -1,0 +1,9 @@
+{
+    "path" : "~/eu_electricity_model/data_preparation/R_maps",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

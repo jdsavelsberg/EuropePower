@@ -1,0 +1,10 @@
+*.lst
+*.log
+*.gms#
+*.gms~
+*.gen
+*.~gm
+*.lxi
+*.opt
+_gams_py_*.*
+*.p

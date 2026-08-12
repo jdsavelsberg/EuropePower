@@ -1,0 +1,477 @@
+%% ---------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%%
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%%
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+%%
+%% $Id: elsarticle-template-5-harv.tex 159 2009-10-08 06:08:33Z rishi $
+%% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/elsarticle-template-5-harv.tex $
+%%
+%\documentclass[preprint,authoryear,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%\documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%%\documentclass[final,authoryear,1p,times]{elsarticle}
+%%\documentclass[final,authoryear,1p,times,twocolumn]{elsarticle}
+\documentclass[authoryear]{elsarticle}
+
+%\documentclass[final,authoryear,5p,times]{elsarticle}
+%\documentclass[final,authoryear,3p,times,twocolumn]{elsarticle}
+%\documentclass[final,authoryear,5p,times]{elsarticle}
+%\documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
+
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{lscape}
+\usepackage{eurosym}
+\usepackage{xspace}												% für saubere Abstände nach Makros
+\usepackage[version=3]{mhchem}									% Für chemische Reatkionsgleichungen
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{lscape}
+
+\usepackage{setspace}
+%\doublespacing
+
+%% Use hyperref package and define link color
+\usepackage{color}
+\definecolor{blue}{rgb}{0,0,0.5}
+\definecolor{gray}{rgb}{0.9,0.9,0.9}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, breaklinks=true, linkcolor=blue, urlcolor=blue}
+ 
+
+\usepackage[authoryear,round]{natbib}
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+\usepackage{caption}
+
+\captionsetup[table]{font=small,labelformat=simple,labelsep=period}
+\captionsetup[figure]{font=small,labelformat=simple,labelsep=period}
+\captionsetup[subfigure]{font=small,labelformat=parens,labelsep=none}
+\renewcommand{\figurename}{\textsc{Figure}}
+\renewcommand{\tablename}{\textsc{Table}}
+
+%\captionsetup[table]{font=small,labelformat=simple,labelsep=period,listofformat=subparens}
+%\captionsetup[figure]{font=small,labelformat=simple,labelsep=period,listofformat=subparens}
+%\usepackage{subcaption}
+
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon (default)
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   authoryear - selects author-year citations (default)
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%   longnamesfirst  -  makes first citation full author list
+%%
+%% \biboptions{longnamesfirst,comma}
+
+% \biboptions{}
+
+%\renewcommand{\floatpagefraction}{.8}
+%\journal{Energy Economics}
+%\journal{Resource and Energy Economics}
+
+\newcommand{\eg}{\mbox{e.\,g.}\xspace}						% setzt z.h. mit dem Befehl \eg immer richtig!
+\newcommand{\ie}{\mbox{i.\,e.}\xspace}						% setzt z.h. mit dem Befehl \ie immer richtig!
+\newcommand{\perc}{\,\%~}									% blödes Prozentzeichen
+\newcommand{\coo}{\ce{CO2}\xspace}							% das richtige setzen von co2
+\newcommand{\eur}{\,\euro~}									% blödes Prozentzeichen
+\newcommand{\redtext}[1]{\color{red}#1\color{black}}        % red text 
+\newtheorem{assum}{Assumption}
+\newtheorem{hypo}{Hypothesis}
+\newtheorem*{hypo*}{Hypothesis}
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Electricty Model Description} 
+
+
+%\author[a]{Jan Abrell}
+%\author[a]{Mirjam Kosch}
+%\author[a,b]{Sebastian Rausch}
+
+%\address[a]{Center for Economic Research at ETH (CER-ETH), Department of Management, Technology and Economics, ETH Zurich; Center for Energy and the Environment (CEE), Zurich University of Applied Sciences (ZHAW), kosc@zhaw.ch}
+% MODIFY FOR SUBMISSION
+%\address[b]{Joint Program of the Science and Policy of Global Change, Massachusetts Institute of Technology, Cambridge, U.S.}
+%\today
+%\cortext[cor1]{Department of Management, Technology, and Economics, ETH Zurich, Z\"urichbergstrasse 18, ZUE E, 8032 Zurich,
+%Switzerland, Phone: +41 44 632-63-59. Center for Economic Research at ETH Zurich (CER-ETH) and Joint Program on the Science and Policy of Global Change, Massachusetts Institute of Technology, Cambridge, USA. \emph{Email:} %srausch@ethz.ch.}
+
+
+\begin{abstract}
+
+\end{abstract}
+
+\begin{keyword}
+%Renewable promotion \sep Carbon pricing  \sep Electricity generation  \sep Policy evaluation
+%\JEL Q41 \sep Q42 \sep Q58
+\end{keyword}
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+%F18 	Trade and Environment
+%Q2 	Renewable Resources and Conservation
+%	Q28 	Government Policy
+%Q4 - Energy
+%Q43    Energy and the Macroeconomy
+%Q48 	Government Policy
+%Q54 - Climate; Natural Disasters; Global Warming
+%C68 - Computable General Equilibrium Models
+
+
+\end{frontmatter}
+
+%\tableofcontents
+%\pagebreak
+
+\section{Introduction} \label{sec:intro3}
+\section{Methods appendix: model}
+\label{sec:model}
+In this appendix, we describe the numerical cost minimization model that we use for a quantitative analysis of the potential benefits of enhancing spatial, temporal, and regulatory flexibility in an interconnected multi-region wholesale electricity market with high shares of renewable energy. The model features an hourly time resolution for the 8760 hours of a year to capture seasonal changes in time-dependent demand and availability of RE sources, several model regions which are connected by limited transfer capacities for trade, investment in new RE capacity, curtailment of RE production if necessary to ensure system stability, and a generic storage technology.
+
+\subsection{The social planner's problem}
+
+The model can be formulated as a social planner's problem. The planner aims at providing sufficient electricity to meet total demand at lowest cost $\mathcal{C}^{\mathrm{tot}}$ to the public while achieving an exogenously given target for generation from renewable sources subject to a set of constraints $\mathcal{B}$ reflecting the specific properties of the electricity market. Formally, this may be written as:
+
+\begin{align}
+\min_{\mathbf{Q}} \mathcal{C}^{\mathrm{tot}}(\mathbf{Q}) \quad \text{s. t.} \quad \mathcal{B}(\mathbf{Q}), \label{eq:social_planner}
+\end{align}
+where the choice variables are given by a vector $\mathbf{Q}$ comprising the quantity variables of the model, conventional hourly generation $X$, yearly renewable generation $G$, curtailment $C$, storage level $S$, injection into storage $J$, release from storage $R$, and trade $T$.\\
+Total cost is given by the sum of generation cost for electricity, $\mathcal{C}^\mathrm{gen}$, and investment cost for new renewable capacity, $\mathcal{C}^\mathrm{inv}$: 
+
+\begin{align}
+\mathcal{C}^{\mathrm{tot}} = \mathcal{C}^\mathrm{gen} + \mathcal{C}^\mathrm{inv} \label{eq:total_cost}
+\end{align}
+
+The model features generation from conventional, dispatchable technologies which we denote by $i \in \mathcal{I}$, intermittent generation from new renewable sources $r \in \mathcal{R}$ and storage technologies $s \in \mathcal{S}$. Time periods are denoted by $t \in \mathcal{T}$ and the regions constituting the submarkets are identified by $c \in \mathcal{C}$.
+
+\subsection{Generation and investment}
+
+Generation from conventional energy sources, $X_{ict}$ is dispatchable and needs to be chosen for each time period such that it cannot exceed the available installed capacity
+
+\begin{align}
+\alpha_{ict} \bar{k}_{ic} \geq X_{ict}, \quad \forall i,c,t, \label{eq:mkt_cap}
+\end{align}
+where $\bar{k}_{ic}$ denotes the installed capacity of technology $i$ in region $c$ and $\alpha_{ict}$ is a factor describing the percentage of actually available production capacity due to factors such as maintenance of conventional power plants.
+
+Generation from new renewable sources (wind and solar), $G_{rc}$, is intermittent, that is depending on the availability of the natural resource and thus not dispatchable. The social planner chooses to invest into a capacity which will produce a total quantity of $G_{rc}$ per year on top of already existing capacity equivalent of generating $\bar{r}^\mathrm{tot}_{rc}$ per year, the sum of
+% incurring investment cost $\sum_{r,c} \mathcal{C}^\mathrm{inv} (G_{rc})$.
+which cannot exceed the technically feasible potential, $\pi_{rc}$, for each technology $r$ in region $c$:
+
+\begin{align}
+\pi_{rc} \geq \bar{r}_{rc}^\mathrm{tot} + G_{rc}, \quad \forall r,c. \label{eq:mkt_inv}
+\end{align}
+
+\subsection{Curtailment} 
+Hourly generation from RE sources is determined by an exogenous factor, $\alpha_{rct}$, which takes into account daily and seasonal changes in resource availability. The planner can also decide to discard part of the RE generation to ensure net stability at times when RE generation would be larger than demand. This curtailment, $C_{rct}$, cannot exceed total RE generation at any given time:
+
+\begin{align}
+\alpha_{rct}\left( \bar{r}^\mathrm{tot}_{ct} + G_{rc} \right) \geq C_{rct}, \quad \forall r,c,t. \label{eq:mkt_cur}
+\end{align} 
+
+\subsection{Trade}
+The model permits electricity trade between regions. The variable $T_{cc't}$ indicates that electricity was traded from region $c$ to region $c'$ at time period $t$. At any time trade volume between regions cannot exceed the given net transfer capacity, $\nu_{cc't}$:
+
+\begin{align}
+\nu_{cc't} \geq T_{cc't}, \quad \forall c,c',t \quad \mathrm{and} \quad c \neq c'. \label{eq:mkt_trade}
+\end{align}
+
+%\subsection{Combined Heat and Power}
+%We also add the possibility to account for co-generation of heat and electrical power (CHP) which links electricity markets to heat demand in some regions. This is incorporated as an exogenous technology-specific electricity demand, $\bar{d}^\mathrm{CHP}$, which acts as a must-run condition for generating units that provide heat and power at the same time and would not necessarily produce in an electricity-only market:
+
+%\begin{align}
+%X_{ict} \geq \bar{d}^\mathrm{CHP}_{ict} \quad \forall i,c,t. \label{eq:mkt_chp}
+%\end{align}
+
+\subsection{Electricity storage}
+
+The possibility to store electrical energy is provided by storage technologies which are described by a capacity to inject energy into the storage, $\bar{k}^J_{sc}$, a capacity to store a certain amount of energy, $\bar{k}^S_{sc}$, and a capacity to release energy from storage, $\bar{k}^R_{sc}$. The associated quantity variables $J_{sct}$, $S_{sct}$, and $R_{sct}$ are bounded by these capacities at all times $t$:
+
+\begin{align}
+\bar{k}^J_{sc} &\geq J_{sct}, \quad \forall s,c,t \label{eq:mkt_capj}\\
+\bar{k}^S_{sc} &\geq S_{sct}, \quad \forall s,c,t \label{eq:mkt_caps}\\
+\bar{k}^R_{sc} &\geq R_{sct}, \quad \forall s,c,t.\label{eq:mkt_capr}
+\end{align}
+
+In addition to these constraints time consistency between periods needs to be ensured. This is achieved by introducing a so-called law of motion for storage which states that the storage level, $S_{sct}$ at time $t$ depends on the storage level at time $t-1$, injection and release and natural water inflows $\varphi_{sct}$ if the storage technology is represented by hydro reservoirs. Formally, this reads as:
+
+\begin{align}
+S_{sc(t-1)} + \eta_{sc} J_{sct} - R_{sct} + \varphi_{sct} = S_{sct}, \quad \forall s,c,t, \label{eq:mkt_lomstor}
+\end{align}
+where $\eta_{sc}$ denotes the round-trip efficiency of the storage technology and thus captures energy losses due to the storage cycle.
+
+\subsection{Renewable energy policy}
+
+The social planner defines a goal for the quantity of renewable energy which can be (a) region-specific or (b) encompass all modeled regions: 
+
+\begin{subequations}
+	\begin{align}
+	\sum_r\left(\bar{r}^\mathrm{tot}_{r,c} + G_{r,c} - \sum_t C_{rct}\right) &= \tau_c, \quad \forall c \label{eq:mkt_quota_country}  \\
+	\sum_{r,c}\left(\bar{r}^\mathrm{tot}_{r,c} + G_{r,c} - \sum_t C_{rct}\right) &= \tau, \label{eq:mkt_quota_eu} 
+	\end{align}
+\end{subequations}
+where $\tau$ is the goal for generation from RE sources.
+
+\subsection{Market clearing}
+Finally, electricity markets need to clear at all times in order to avoid a blackout, that is generation from all technologies, injection into storage, net trade, and curtailment must equal hourly demand $\bar{d}_{ct}$ in every region $c$ and every period $t$: 
+
+\begin{align}
+&\sum_{i} X_{ict} + \sum_s \left(R_{sct} - J_{sct}\right) + \\ \nonumber
+&\sum_{c'} \left[\left(1-\lambda_{c'c}\right)T_{c'ct} - T_{cc't}\right] +\\ \nonumber
+&\sum_r \left[\alpha_{rct}\left(\bar{r}^\mathrm{tot}_{rc} + G_{rc}\right) - C_{rct} \right] = 
+\bar{d}_{ct}, \quad \forall c,t.
+\end{align}
+
+
+\section{Methods appendix: empirical specification}
+
+\begin{table*}[!htb]\renewcommand{\baselinestretch}{1}\normalsize\footnotesize
+	\centering
+	\caption{Model specifications: data sources for model parameters }
+	\vspace{-1ex}	
+	\begin{tabular*}{\textwidth}{@{}@{\extracolsep{\fill}}ll@{}}
+		\toprule
+		\toprule
+		\multicolumn{1}{c}{Model parameters} & \multicolumn{1}{c}{Data sources} \\
+		\midrule
+		Conventional and storage capacities $\bar{k}_{ic}$, $\bar{k}_{sc}^J$, $\bar{k}_{sc}^S$, $\bar{k}_{sc}^R$ & European Network of Transmission System Operators for Electricity (ENTSO-E) \cite{entsoe-cap} \\
+		Generation data for $\alpha_{ict}$, $\alpha_{rct}$, and $\bar{r}^{\mathrm{tot}}_{rc}$ & European Network of Transmission System Operators for Electricity (ENTSO-E) \cite{entsoe-generation} \\
+		Heat efficiencies $\eta_{ic}$, variable O\&M cost $c_{ic}^{\mathrm{O\&M}}$ & International Energy Agency (IEA), Nuclear Energy Agency \& OECD \cite{IEA2015} \\
+		Fuel cost $c_{ic}^{\mathrm{f}}$ & International Energy Agency (IEA) \cite{IEA2019} \\
+		Renewable energy potentials $\pi_{rc}$ & Tröndle et al. (2019)\cite{troendle2019,troendle2019a}\\
+		Renewable investment cost per MW & Kost et al. (2018)\cite{ISE2018}\\
+		Storage efficiency $\eta_{sc}$ & Egerer et al. (2014)\cite{Egerer2014}, Newbery (2016)\cite{Newbery2016} \\
+		Demand $\bar{d}_{ct}$ & European Network of Transmission System Operators for Electricity (ENTSO-E)\cite{entsoe-load} \\   
+		Net transfer capacities $\nu_{cc't}$ & Agency for the Cooperation of Energy Regulators\cite{acer2018}, Ten year network development plan 2018\cite{tyndp2018}\\
+		\bottomrule
+	\end{tabular*}
+	\label{tab:data_sources}%
+	\vspace{0ex}
+	\caption*{\emph{Notes:} This table lists the data sources used for the calibration of the model and associates them to the respective model parameters.}
+\end{table*}
+
+
+
+
+For the empirical specification of our model, we choose the year 2017 as our base year and collect all the relevant electricity market data for this year. The model features an hourly time resolution and to capture the seasonal variations in the demand and RE generation cycles we model all the 8760 hours of the year, which means that the set $\mathcal{T}$ of time periods is $\left\lbrace t_1, \dots, t_{8760} \right\rbrace$. The model covers 18 European countries and 13 electricity generation and storage technologies which are listed in table \ref{tab:countries_technologies}. For each of these countries and technologies we need to specify the relevant model parameters. The data sources and the parameters associated to them are summarized in table \ref{tab:data_sources}.
+
+\begin{table}[!htb]\renewcommand{\baselinestretch}{1}\normalsize\footnotesize
+	\centering
+	\caption{Model specifications: regions and technologies covered in the model framework.}
+	\vspace{-1ex}
+	
+	\begin{tabular*}{\columnwidth}{@{}@{\extracolsep{\fill}}ll@{}} 
+		\toprule
+		\toprule
+		Regions $c\in \mathcal{C}$ & Austria, Belgium, Czech Republic, \\
+		& Denmark, Finland, France, Germany, \\
+		&Ireland, Italy, Luxembourg, \\
+		& Netherlands, Norway, Poland, \\
+		&Portugal, Spain, Sweden, \\
+		&Switzerland, United Kingdom	\\
+		Technologies & Hard Coal$^a$, Lignite$^a$, Nuclear$^a$,\\
+		& Other$^a$, Biomass$^{b}$, Reservoir$^{b}$,\\
+		& Run-of-River$^{b}$,  Wind Onshore$^c$, \\
+		& Wind Offshore$^c$, Rooftop Solar$^{c,d}$, Storage\\
+		\bottomrule
+	\end{tabular*}
+	\label{tab:countries_technologies}%
+	\vspace{0ex}
+	\caption*{\emph{Notes:} $^a$ Conventional technologies,	$^b$ Renewable conventional technologies,
+		$^c$ New renewable technologies $^d$ In the remainder of this paper solar is short for rooftop solar.}
+	
+\end{table}
+
+\subsection{Generation and storage}
+\label{calib:gen_stor}
+
+\footnotesize\MakeUppercase{Conventional Generation}.-----\normalsize The capacities for conventional technologies and storage, $\bar{k}_{ic}$, $\bar{k}_{sc}^J$, $\bar{k}_{sc}^S$, $\bar{k}_{sc}^R$ are taken from the database of the European Network of Transmission System Operators (ENTSO-E) \cite{entsoe-cap}. For the dispatchable fuel-based technologies (Hard coal, Lignite, Gas, Oil, Other) the reported capacities can be treated as net generation capacities and we choose the availability factor $\alpha_{ict} = 1$, accordingly. The effective net generation capacity of hydro power (Run-of-River, Reservoir) depends on complex and geographically diverse hydrological processes. We capture the seasonal production patterns of Run-of-River plants by treating their generation as exogenous and use the generation data from ENTSO-E for the base year\cite{entsoe-generation} reflecting the fact that Run-of-River as a low marginal cost technology is dispatched whenever available. For Reservoirs, we obtain weekly reservoir levels from the ENTSO-E database\cite{entsoe-generation} and calculate natural inflows $\varphi_{st}$ on this basis. We require initial and terminal reservoir levels to be equal and thus reservoir net generation capacity is completely determined by seasonal inflows. For generation from biomass and nuclear we choose the availability factors such that their output is in line with actually observed generation rather than their considerably higher theoretical maximum output. Conventional producers incur marginal generation cost, $\partial \mathcal{C}^\mathrm{gen}/\partial X_{ict}$, when generating electricity. We specify the marginal generation cost function as the sum of fuel cost and variable operation and maintenance (O\&M) cost:
+
+\begin{align}
+\frac{\partial \mathcal{C}^\mathrm{gen}}{\partial X_{ict}} = \frac{c^\mathrm{f}_{ic}}{\eta_{ic}} + c^\mathrm{O\&M}_{ic}, 
+\label{eq:marg_gen}
+\end{align} 
+where the heat efficiencies, $\eta_{ic}$, are taken from the International Energy Agency (IEA)\cite{IEA2015}\footnote{For technologies such as hydro power the heat efficiency is set to 1.} and the fuel cost, $c^\mathrm{f}_{ic}$, is taken from IEA\cite{IEA2019} for the countries where data is available. For the remaining countries, the missing data was filled with cost information from neighboring countries (see table \ref{tab:app_data_fuelprice} for details). We take the same approach for the variable O\&M costs, $c^\mathrm{O\&M}_{ic}$. Where available, data is taken from IEA\cite{IEA2015} and the remaining values are filled as given in table \ref{tab:app_data_om}. 
+
+\begin{table}[!htb]\renewcommand{\baselinestretch}{1}\normalsize\footnotesize
+	\centering
+	\caption{Fuel Prices for Conventional Technologies}
+	\vspace{-1ex}
+	
+	\begin{tabular*}{\columnwidth}{@{}@{\extracolsep{\fill}}lcccc@{}} 
+		\toprule
+		\toprule
+		&\multicolumn{4}{c}{Technologies}   \\
+		\cline{2-5}	
+		&	\vline height12pt width0pt\relax	Hard coal	& Lignite & Oil & Gas	\\ 	
+		\midrule
+		AT	&	--	&	--	&	--	&	--	\\
+		BE	&	--	&	--	&	GB	&	AT	\\
+		CH	&	--	&	--	&	--	&	--	\\
+		CZ	&	PL	&	DE	&	--	&	PL	\\
+		DE	&	--	&	--	&	AT	&	AT	\\
+		DK	&	DE	&	--	&	AT	&	AT	\\
+		ES	&	PT	&	DE	&	GB	&	PT	\\
+		FI	&	--	&	--	&	GB	&	--	\\
+		FR	&	DE	&	--	&	GB	&	AT	\\
+		GB	&	--	&	--	&	--	&	--	\\
+		IE	&	GB	&	--	&	GB	&	GB	\\
+		IT	&	AT	&	--	&	GB	&	AT	\\
+		LU	&	--	&	--	&	--	&	AT	\\
+		NL	&	DE	&	--	&	--	&	AT	\\
+		NO	&	--	&	--	&	--	&	GB	\\
+		PL	&	--	&	DE	&	AT	&	--	\\
+		PT	&	--	&	--	&	GB	&	--	\\
+		SE	&	FI	&	--	&	GB	&	FI	\\	
+		\bottomrule
+	\end{tabular*}
+	
+	\label{tab:app_data_fuelprice}%
+	\caption*{\emph{Notes:} The fuel prices for technology $i$ in country $c$ in the left column, $c^\mathrm{f}_{ict}$, are taken from data for the country indicated in the columns below the technologies.
+		\\
+		A dash indicates that data for this country and technology were available.\\
+		The country codes are explained in table \ref{tab:country_codes}.}
+	\vspace{-5ex}
+\end{table}
+
+\begin{table}[!htb]\renewcommand{\baselinestretch}{1}\normalsize\footnotesize
+	\centering
+	\caption{Variable O\&M Cost for Conventional Technologies}
+	\vspace{-1ex}
+	\begin{tabular*}{\columnwidth}{@{}@{\extracolsep{\fill}}lcccc@{}} 
+		\toprule
+		\toprule
+		&\multicolumn{4}{c}{Technologies}   \\
+		\cline{2-5}	
+		&	\vline height12pt width0pt\relax	Hard coal	& Lignite & Gas & Nuclear	\\ 	
+		\midrule
+		AT	&	DE	&	--	&	DE	&	--	\\
+		BE	&	--	&	--	&	--	&	--	\\
+		CH	&	--	&	--	&	--	&	FR	\\
+		CZ	&	DE	&	DE	&	DE	&	FR	\\
+		DE	&	--	&	--	&	--	&	FR	\\
+		DK	&	DE	&	--	&	DE	&	--	\\
+		ES	&	DE	&	DE	&	DE	&	FR	\\
+		FI	&	DE	&	--	&	DE	&	--	\\
+		FR	&	DE	&	--	&	--	&	--	\\
+		GB	&	NL	&	--	&	--	&	--	\\
+		IE	&	NL	&	--	&	GB	&	--	\\
+		IT	&	DE	&	--	&	FR	&	--	\\
+		LU	&	--	&	--	&	DE	&	--	\\
+		NL	&	--	&	--	&	--	&	BE	\\
+		NO	&	--	&	--	&	DE	&	--	\\
+		PL	&	DE	&	DE	&	DE	&	--	\\
+		PT	&	--	&	--	&	--	&	--	\\
+		SE	&	DE	&	--	&	DE	&	FR	\\		
+		\bottomrule
+	\end{tabular*}
+	\label{tab:app_data_om}%
+	\caption*{\emph{Notes:} The variable O\&M costs for technology $i$ in country $c$ in the left column, $c^\mathrm{O\&M}_{ict}$, are taken from data for the country indicated in the columns below the technologies.
+		\\
+		A dash indicates that data for this country and technology were available.\\
+		The country codes are explained in table \ref{tab:country_codes}.}
+	\vspace{-5ex}
+\end{table}
+
+\footnotesize\MakeUppercase{New Renewable Generation}.-----\normalsize Yearly generation from existing new renewable capacity, $\bar{r}^\mathrm{tot}$, is taken from ENTSO-E\cite{entsoe-generation} for the countries where data is available. This information is used to calibrate the hourly availability factors for new renewables, $\alpha_{rct}$, as the share of each hour in total generation. In this way, $\alpha_{rct}$ captures both the intra-day and seasonal variations in resource availability for new RE. For countries with missing data, we fill the gaps with data from neighboring countries as given in table \ref{tab:app_data_resprofiles}.\\ 
+Producers of wind and solar energy face near zero marginal generation cost and the dominating cost factor is marginal investment cost $\partial \mathcal{C}^\mathrm{inv}/\partial G_{rct}$. The maximally possible generation from new renewable energy sources (wind and solar energy) depends on the available natural resource at the geographical position of the installation. Between countries and also within their territory, this natural resource quality varies considerably and we need to take this into account when calibrating the marginal investment cost curves for RE technologies. We assume that in each region the best suited sites for RE generation will be used first and with increasing cumulative installed capacity site quality of new installations deteriorates, which is equivalent with stating that the yearly generation in MWh of an additional MW of RE capacity decreases, or that the marginal investment cost per MWh increases with increasing installed capacity. We capture this characteristic by choosing a linear functional form for the marginal investment cost with a positive slope:
+
+\begin{align}
+\frac{\partial\mathcal{C}^\mathrm{inv}}{\partial G_{rc}} = c^\mathrm{inv}_{rc} + d^\mathrm{inv}_{rc} \left(G_{rc}+\bar{r}^\mathrm{tot}_{r,c}\right), \label{eq:marg_inv}
+\end{align}
+where the intercept, $c^\mathrm{inv}_{rc}$, and the slope, $d^\mathrm{inv}_{rc}$, are determined from data on renewable potential found in the literature\cite{troendle2019,troendle2019a}. For each region in the model, this data set contains estimates for the investment potential for capacity (in MW) and for annual generation (in MWh) on the municipal level. From this data we obtain a finely grained step function\footnote{Each step corresponds to a municipality covered in the data set.} for marginal investment cost in four steps. First, we order the geographical entities in decreasing order by full load hours (i.e., the ratio between annual generation and capacity investment) which gives us the cumulative\footnote{This is, each municipality's capacity potential is added to the potential of all the preceding municipalities in this ordering to obtain total installed potential up to the respective point in the list.} investment path described above. Second, we calculate cumulative annualized investment cost for each piece of the step function by multiplying the municipality's cumulative capacity potential with the cost per MW for each technology found in the literature\cite{ISE2018}. Third, we divide this cumulative cost by the estimated annual generation in MWh to obtain marginal investment cost per MWh. Fourth, we fit a linear function to the marginal investment cost curve and thus get the parameters $c^\mathrm{inv}_{rc}$ and $d^\mathrm{inv}_{rc}$. Next, we obtain the maximally feasible potential RE generation for each model region in eq. (\ref{eq:mkt_inv}), $\pi_{rc}$, by aggregating the generation potentials\cite{troendle2019} to the country level.\\
+Finally, where necessary we impose an adjustment on the intercepts $c^\mathrm{inv}_{rc}$ making sure that no investment takes place on top of the actually existing quantities in the base year 2017. In this way we ensure a consistent link between the marginal investment cost curves we obtained from the method described above and the actual observation for your base year system.
+
+\begin{table}[!htb]\renewcommand{\baselinestretch}{1}\normalsize\footnotesize
+	\centering
+	\caption{Availability Factors for New RE Sources}
+	\vspace{-1ex}
+	\begin{tabular*}{\columnwidth}{@{}@{\extracolsep{\fill}}lccc@{}} 
+		\toprule
+		\toprule
+		&\multicolumn{3}{c}{Technologies}   \\
+		\cline{2-4}	
+		&	\vline height12pt width0pt\relax	Wind Onshore	& Wind Offshore & Solar	\\ 	
+		\midrule
+		AT	&	--	&	--	&	--	\\
+		BE	&	--	&	--	&	--	\\
+		CH	&	--	&	--	&	--	\\
+		CZ	&	--	&	--	&	--	\\
+		DE	&	--	&	--	&	--	\\
+		DK	&	--	&	--	&	--	\\
+		ES	&	--	&	GB	&	--	\\
+		FI	&	--	&	DK	&	DK	\\
+		FR	&	--	&	GB	&	--	\\
+		GB	&	--	&	--	&	--	\\
+		IE	&	--	&	GB	&	GB	\\
+		IT	&	--	&	GB	&	--	\\
+		LU	&	BE	&	--	&	BE	\\
+		NL	&	--	&	--	&	--	\\
+		NO	&	--	&	DK	&	DK	\\
+		PL	&	--	&	DE	&	DE	\\
+		PT	&	--	&	GB	&	--	\\
+		SE	&	--	&	DK	&	DK	\\		
+		\bottomrule
+	\end{tabular*}
+	\label{tab:app_data_resprofiles}%
+	\caption*{\emph{Notes:} The availablity factors for technology $r$ in country $c$ in the left column, $\alpha_{rct}$, are taken from data for the country indicated in the columns below the technologies.
+		\\
+		A dash indicates that data for this country and technology were available.\\
+		The country codes are explained in table \ref{tab:country_codes}.}
+	\vspace{-5ex}
+\end{table}
+
+\footnotesize\MakeUppercase{Storage}.-----\normalsize Electricity storage is modeled on pumped hydro power storage (PHP) in the sense that in the no-policy base case scenario we use the generation capacities, $\bar{k}^J_{sc}$, $\bar{k}^S_{sc}$, $\bar{k}^R_{sc}$, and the roundtrip efficiency, $\eta_{sc}$, of this technology in the calibration. The release capacity $\bar{k}_{sc}^R$ is given by the net generation capacity for pumped hydro from ENTSO-E\cite{entsoe-cap} and we set $\bar{k}^J_{sc} =  \bar{k}^R_{sc}$ for the injection (i.,e., pumping) capacity. For the storage level capacity we assume a six hour time frame for complete depletion of the reservoir and set $\bar{k}^S_{sc} = 6 \times \bar{k}^R_{sc}$. The roundtrip efficiency $\eta_{sc}$ is set to $75\%$ which is found in the literature\cite{Egerer2014,Newbery2016}. For the simulation scenarios we take a more general approach to storage and relax the capacity constraints which is equivalent to exogenously adding the necessary amount of storage capacity so that the constraints (\ref{eq:mkt_capj}), (\ref{eq:mkt_capr}), and (\ref{eq:mkt_caps}) are slack. The storage can then be seen to be generic in that any storage technology has a capacity to inject electricity into and release it from storage and a certain efficiency. 
+
+\subsection{Demand and trade}
+\footnotesize\MakeUppercase{Demand}.-----\normalsize Demand $\bar{d}_{ct}$ is modeled to be inelastic and we take its values from ENTSO-E\cite{entsoe-load} for all model regions and all of the hours of the year to capture seasonal and intra-day variations in demand.
+
+\footnotesize\MakeUppercase{Trade}.-----\normalsize Electricity trade between neighboring model regions is possible where net transfer capacities, $\nu_{cc't}$, exist. We take net transfer capacities from the Agency for the Cooperation of Energy Regulators\cite{acer2018} supplemented by values taken from the \textit{Ten year network development plan 2018}\cite{tyndp2018} where necessary.
+
+
+\subsection{Computational strategy}
+The last part of this section is dedicated to the computational strategy we employ for our numerical simulations. The model described in section \ref{sec:model} is classified as a \textit{Quadratic Program} (QP) with a quadratic objective function and linear constraints. We formulate the model equations in the General Algebraic Modeling System (GAMS) and use the built in CPLEX 12 solver GAMS/CPLEX to solve the quadratic program.
+
+%\bibliographystyle{model5-names}
+\bibliography{project_3}
+\end{document}

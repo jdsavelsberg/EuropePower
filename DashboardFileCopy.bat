@@ -1,0 +1,2 @@
+xcopy /y C:\Users\jonas\Documents\eu_electricity_model\model\data\calibration_EU_2017_all_daily.gdx C:\Users\jonas\Documents\eu_electricity_model\result_dashboard\gdx\calibration_EU_2017_all_daily.gdx
+xcopy /y C:\Users\jonas\Documents\eu_electricity_model\model\scenarios\base\results\baselp.gdx C:\Users\jonas\Documents\eu_electricity_model\result_dashboard\gdx\baselp.gdx
