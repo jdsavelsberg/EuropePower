@@ -13,8 +13,12 @@ dist/
 
 # GAMS scratch directories and project files
 225*
-*.gpr 
+*.gpr
+*.gsp
 *.dat
+*.par
+*.tmp
+Untitled_*.gms
 
 # Compiled Java class files
 *.class
@@ -27,6 +31,7 @@ dist/
 
 # Compiled Python bytecode
 *.py[cod]
+__pycache__/
 
 # Log files
 *.log
@@ -74,3 +79,8 @@ gamslice_*.txt
 
 # Windows shortcuts
 *.lnk
+
+# R / RStudio session state
+.Rhistory
+.RData
+.Rproj.user/
